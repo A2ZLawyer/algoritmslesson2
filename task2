@@ -1,0 +1,34 @@
+using System;
+
+namespace algoritmlesson2task2
+{
+    class MainClass
+    {
+        public static int BinarySearch(int[] array, int key)
+        {
+            int left = 0;
+            int right = array.Length;
+            while (true)
+            {
+                int mid = left + (right - left) / 2;
+
+                if (array[mid] == key)
+                    return mid;
+
+                if (array[mid] > key)
+                    right = mid;
+                else
+                    left = mid++;
+            }
+        }
+        public static void Main(string[] args)
+        {
+            int[] array = new int[] { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21 };
+            Console.WriteLine("Введите искомый целочисленный элемент в массиве");
+            int key = int.Parse(Console.ReadLine());
+            int i = BinarySearch(array, key);
+            Console.Write("Искомый элемент находится в массиве, его индекс " + i);
+        }
+
+    }
+}
